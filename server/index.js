@@ -117,3 +117,13 @@ app.post('/api/extract', upload.single('file'), async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
+
+const path = require('path');
+
+// after all /api routes, before app.listen:
+const clientDistPath = path.join(__dirname, '..', 'client', 'dist');
+app.use(express.static(clientDistPath));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientDistPath, 'index.html'));
+});

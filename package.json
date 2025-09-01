@@ -1,0 +1,11 @@
+{
+  "name": "smca",
+  "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && npm install && node index.js"
+  }
+}
